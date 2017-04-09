@@ -1,0 +1,13 @@
+[package]
+
+	name = "systemd-jp"
+	version = "0.1.0"
+	authors = [
+		"James Pharaoh <james@pharaoh.uk>"
+	]
+
+[dependencies]
+
+	dbus = "0.5"
+
+# ex: noet ts=4 filetype=toml
