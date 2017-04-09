@@ -2,6 +2,12 @@
 
 	name = "systemd-jp"
 	version = "0.1.0"
+	description = "Rust interface to systemd management API via dbus"
+
+	homepage = "https://gitlab.wellbehavedsoftware.com/james/rust-systemd-jp"
+	repository = "https://gitlab.wellbehavedsoftware.com/james/rust-systemd-jp"
+	license = "BSD-3-Clause"
+
 	authors = [
 		"James Pharaoh <james@pharaoh.uk>"
 	]

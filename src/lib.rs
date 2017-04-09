@@ -1,3 +1,5 @@
+extern crate dbus;
+
 mod systemd_connection;
 mod systemd_dbus;
 mod systemd_manager;
