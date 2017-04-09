@@ -60,6 +60,18 @@ impl SystemdUnit {
 		& self.name
 	}
 
+	pub fn load_state (& self) -> & SystemdLoadState {
+		& self.load_state
+	}
+
+	pub fn active_state (& self) -> & SystemdActiveState {
+		& self.active_state
+	}
+
+	pub fn sub_state (& self) -> & SystemdSubState {
+		& self.sub_state
+	}
+
 }
 
 // ex: noet ts=4 filetype=rust

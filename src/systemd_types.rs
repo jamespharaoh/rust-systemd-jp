@@ -3,11 +3,27 @@ use std::rc::Rc;
 
 use super::*;
 
+#[ derive (Debug, Clone, Eq, PartialEq) ]
 pub enum SystemdLoadState {
 	Loaded,
 	Error,
 	Masked,
 	Other (String),
+}
+
+impl SystemdLoadState {
+
+	pub fn as_str (& self) -> & str {
+
+		match * self {
+			SystemdLoadState::Loaded => "loaded",
+			SystemdLoadState::Error => "error",
+			SystemdLoadState::Masked => "masked",
+			SystemdLoadState::Other (ref value) => value,
+		}
+
+	}
+
 }
 
 impl <'a> From <& 'a str> for SystemdLoadState {
@@ -27,6 +43,7 @@ impl <'a> From <& 'a str> for SystemdLoadState {
 
 }
 
+#[ derive (Debug, Clone, Eq, PartialEq) ]
 pub enum SystemdActiveState {
 	Active,
 	Reloading,
@@ -35,6 +52,24 @@ pub enum SystemdActiveState {
 	Activating,
 	Deactivating,
 	Other (String),
+}
+
+impl SystemdActiveState {
+
+	pub fn as_str (& self) -> & str {
+
+		match * self {
+			SystemdActiveState::Active => "active",
+			SystemdActiveState::Reloading => "reloading",
+			SystemdActiveState::Inactive => "inactive",
+			SystemdActiveState::Failed => "failed",
+			SystemdActiveState::Activating => "activating",
+			SystemdActiveState::Deactivating => "deactivating",
+			SystemdActiveState::Other (ref value) => value,
+		}
+
+	}
+
 }
 
 impl <'a> From <& 'a str> for SystemdActiveState {
@@ -57,8 +92,21 @@ impl <'a> From <& 'a str> for SystemdActiveState {
 
 }
 
+#[ derive (Debug, Clone, Eq, PartialEq) ]
 pub enum SystemdSubState {
 	Other (String),
+}
+
+impl SystemdSubState {
+
+	pub fn as_str (& self) -> & str {
+
+		match * self {
+			SystemdSubState::Other (ref value) => value,
+		}
+
+	}
+
 }
 
 impl <'a> From <& 'a str> for SystemdSubState {
@@ -75,6 +123,7 @@ impl <'a> From <& 'a str> for SystemdSubState {
 
 }
 
+#[ derive (Debug, Clone, Eq, PartialEq) ]
 pub enum SystemdJobType {
 	Start,
 	VerifyActive,
